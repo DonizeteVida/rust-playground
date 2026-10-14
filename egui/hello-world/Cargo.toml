@@ -6,3 +6,18 @@ edition = "2024"
 [dependencies]
 egui = "0.36.2"
 eframe = "0.36.2"
+
+[target.'cfg(target_os = "android")'.dependencies]
+eframe = { version = "0.36.2", features = ["glow"] }
+android-activity = { version = "0.6.1", features = ["native-activity"] }
+
+[[example]]
+name = "desktop"
+
+[[example]]
+name = "android"
+crate-type = ["cdylib"]
+
+[package.metadata.android.sdk]
+min_sdk_version = 23
+target_sdk_version = 35
